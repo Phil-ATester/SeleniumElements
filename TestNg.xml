@@ -14,8 +14,9 @@
             <class name="com.seleniumeasy.tests.TC_SimpleForm_001"></class>
             <class name="com.seleniumeasy.tests.TC_CheckBox_002"></class>
             <class name="com.seleniumeasy.tests.TC_RadioButton_003"></class>
-            -->
             <class name="com.seleniumeasy.tests.TC_SelectDropDown_004"></class>
+            -->
+            <class name="com.seleniumeasy.tests.TC_ImportForm_005"></class>
         </classes>
     </test>
 </suite>

@@ -23,6 +23,9 @@ public class TC_SelectDropDown_004 extends BaseClass{
         selectDropDownPage.selectCountry("New York");
 
         //To-do Assert that options are selected/
+        selectDropDownPage.selectFirstSelectedBtn();
+       // Assert.assertTrue(selectDropDownPage.getOptionsSelected().contains("California"));
+        System.out.println("country selected: " + selectDropDownPage.getOptionsSelected());
     }
 
 }

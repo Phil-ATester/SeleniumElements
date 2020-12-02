@@ -24,6 +24,15 @@ public class SelectDropDownPage {
     @FindBy (xpath="//*[@id='multi-select']")
     private WebElement multiList;
 
+    @FindBy (css="p.getall-selected")
+    private WebElement optionSelectedResult;
+
+    @FindBy (xpath ="//*[@id='printMe']")
+    private WebElement firstSelectedBtn;
+
+    @FindBy (xpath="//*[@id='printAll']")
+    private WebElement getAllSelectedBtn;
+
     public SelectDropDownPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -46,6 +55,31 @@ public class SelectDropDownPage {
     public void selectCountry(String name){
         Select countryDropDown = new Select(multiList);
         countryDropDown.selectByVisibleText(name);
+    }
+/*
+    public void selectFromDropDown(String option){
+        findDropDownElement().selectByVisibleText(option);
+    }
+
+    public List<String> getSelectedOption(){
+        List <WebElement> selectedElement = findDropDownElement().getAllSelectedOptions();
+        return selectedElement.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
+
+    private Select findDropDownElement(){
+        return new Select(driver.findElement(dropdown));
+    }
+*/
+    public String getOptionsSelected(){
+        return optionSelectedResult.getText();
+    }
+
+    public void selectFirstSelectedBtn(){
+        firstSelectedBtn.click();
+    }
+
+    public void setGetAllSelectedBtn(){
+        getAllSelectedBtn.click();
     }
 
 }
