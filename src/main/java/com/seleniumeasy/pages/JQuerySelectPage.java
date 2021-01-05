@@ -7,13 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 public class JQuerySelectPage {
@@ -54,14 +53,17 @@ public class JQuerySelectPage {
         js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", jquerySelectText);
 
-        driver.manage().timeouts().pageLoadTimeout(3000, TimeUnit.SECONDS);
+        //driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
     }
 
     public void selectCountry(String country) {
 
-        //WebDriverWait wait = new WebDriverWait(driver, 30);
-        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='select2-country-container']//parent::span")));
-        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        //WebDriverWait wait = new WebDriverWait(driver, 2000);
+        //wait.until(ExpectedConditions.elementToBeSelected(By.xpath("//*[@id='select2-country-container']//parent::span")));
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        //System.out.println("after wait/before dropdown click");
+
+        //Wait wait = new FluentWait<WebDriver>(driver).withTimeout(50,TimeUnit.SECONDS).pollingEvery(3, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
 
         countrydd.click();
         //driver.findElement(By.xpath("//*[@id='select2-country-container']//parent::span")).click();
@@ -70,16 +72,6 @@ public class JQuerySelectPage {
 
         List<WebElement> elements = driver.findElements(By.cssSelector("#select2-country-results>li"));
         select_values(elements, country);
-
-        /*
-        for(WebElement element: elements){
-            System.out.println("For Loop");
-            if(element.getText().equals(country)){ ;
-                System.out.println("Selected Element: " + element.getText());
-                element.click();
-                break;
-            }
-        }*/
 
         //js = (JavascriptExecutor)driver;
         //List<WebElement> elements = (List<WebElement>) js.executeScript("return j.Query.find('name=select2-country-results')");

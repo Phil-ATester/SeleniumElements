@@ -21,7 +21,7 @@ public class TC_JQuery_007 extends BaseClass {
         //Thread.sleep(4000);
     }
 
-
+/*
     @Test
     public void JqueryDropDownTest_002() throws InterruptedException {
         JQuerySelectPage jQuerySelectPage = new JQuerySelectPage(driver);
@@ -59,5 +59,5 @@ public class TC_JQuery_007 extends BaseClass {
 
        // Thread.sleep(3000);
     }
-
+*/
 }

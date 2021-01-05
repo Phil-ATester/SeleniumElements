@@ -17,8 +17,11 @@
             <class name="com.seleniumeasy.tests.TC_SelectDropDown_004"></class>
             <class name="com.seleniumeasy.tests.TC_ImportForm_005"></class>
             <class name="com.seleniumeasy.tests.TC_AjaxForm_006"></class>
-            -->
             <class name="com.seleniumeasy.tests.TC_JQuery_007"></class>
+
+            <class name="com.seleniumeasy.tests.TC_DatePicker_008"></class>
+            -->
+            <class name="com.seleniumeasy.tests.TC_TablePagination_010"></class>
         </classes>
     </test>
 </suite>
