@@ -121,7 +121,7 @@ public class TablePagination {
             driver.findElement(By.cssSelector("a[class='next_link']")).click();
           firstColumnElements = driver.findElements(By.cssSelector("tr[style='display: table-row;']>td:nth-child(1)")); //
 
-            columnData1 = new ArrayList<String>(); //
+            columnData1 = new ArrayList<String>(); // not need - must test
             for (WebElement element: firstColumnElements){
                 columnData1.add(element.getText());
             }

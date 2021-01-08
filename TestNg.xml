@@ -20,8 +20,11 @@
             <class name="com.seleniumeasy.tests.TC_JQuery_007"></class>
 
             <class name="com.seleniumeasy.tests.TC_DatePicker_008"></class>
-            -->
             <class name="com.seleniumeasy.tests.TC_TablePagination_010"></class>
+            <class name="com.seleniumeasy.tests.TC_TableDataSearch_011"></class>
+            <class name="com.seleniumeasy.tests.TC_TableFilter_012"></class>
+            -->
+            <class name="com.seleniumeasy.tests.TC_TableSearch_013"></class>
         </classes>
     </test>
 </suite>
