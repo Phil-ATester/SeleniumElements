@@ -27,7 +27,7 @@
             
             <class name="com.seleniumeasy.tests.TC_BootStrapProgress_015"></class>
             -->
-            <class name="com.seleniumeasy.tests.TC_ProgressBarModal_20"></class>
+            <class name="com.seleniumeasy.tests.TC_DragAndDrop_025"></class>
         </classes>
     </test>
 </suite>

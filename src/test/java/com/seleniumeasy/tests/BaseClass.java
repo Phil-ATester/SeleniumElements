@@ -1,5 +1,6 @@
 package com.seleniumeasy.tests;
 
+import com.google.common.io.Files;
 import com.seleniumeasy.utils.ReadConfig;
 
 import org.apache.commons.io.FileUtils;
@@ -11,7 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -67,10 +70,29 @@ public class BaseClass {
         driver.quit();
     }
 
-    public void captureScreen(WebDriver driver, String testName) throws IOException {
+    public void captureScreen(WebDriver driver, String testName){
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile,new File("./resources/Screenshots/" + testName + ".png"));
+        try {
+            FileUtils.copyFile(scrFile,new File("resources/screenshots" + testName + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("Screenshot Taken");
+    }
+
+    @AfterMethod
+    public void recordFailure(ITestResult result){
+        System.out.println("Test Result: " + result.getStatus());
+        if (ITestResult.FAILURE == result.getStatus()){
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+            try{
+                Files.move(screenshot, new File("resources/screenshots/" + result.getName() + ".png"));
+                System.out.println(result.getName());
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 
 }
